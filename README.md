@@ -1,5 +1,5 @@
 **Udacity Frontend Nanodegree program**
- Landing Page Project #2
+ -Landing Page Project #2
 
 
 **Languages**
@@ -14,4 +14,4 @@
 - scroll to top button
 
 **Landing Page Project**
-To build a multi-section landing page, with a dynamically updating navigational menu based on the amount of content that is added to the page.
+- To build a multi-section landing page, with a dynamically updating navigational menu based on the amount of content that is added to the page.
