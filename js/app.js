@@ -78,7 +78,6 @@ const sectionActiveState = () => {
 
 }
 
-
 // Scroll to anchor ID using scrollTO event
 document.addEventListener("scroll", sectionActiveState);
 
