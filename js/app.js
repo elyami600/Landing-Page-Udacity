@@ -50,34 +50,51 @@ const navigationBuilt = () => {
 }
 navigationBuilt();
 
-// Add class 'active' to section when near top of viewport
-// const deactivateState = (section) => {
-//     section.classList.remove('your-active-class');
-//     //section.classList.remove('focus');   
-// }
-// const activeState = (section) => {
-//     section.classList.add('your-active-class');
-//     //section.classList.add('focus');   
+// This function will remove class and it will deactive 
+const deactivateState = (section) => {
+  section.classList.remove('your-active-class');
+  section.classList.remove('link__active');
+}
+// This function will addclass and it will active
+const activeState = (section) => {
+  section.classList.add('your-active-class');
+  section.classList.add('link__active');
 
-// }
+}
+// Set sections as active
+// Add class 'active' to section when near top of viewport
 const sectionActiveState = () => {
     $AllSections.forEach(section => {
         let coordTop = Math.floor(section.getBoundingClientRect().top);
-        let booleanCoordTop = coordTop <= 200 && coordTop >= -200;
-        
+         booleanCoordTop = coordTop <= 200 && coordTop >= -200;
+
         if(booleanCoordTop) {
-            section.classList.add('your-active-class');
-            section.classList.add('link__active');
-        }
-        else {
-            section.classList.remove('your-active-class');
-            section.classList.remove('link__active');
+          activeState(section)
+        
+        }else {
+          deactivateState(section)    
         }
     });
+
 }
+
 
 // Scroll to anchor ID using scrollTO event
 document.addEventListener("scroll", sectionActiveState);
+
+// Scroll to section on link click
+const scrollTosectionId = () =>{
+  document.querySelectorAll('.navbar__menu a').forEach(a => {
+      a.addEventListener('click', function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+              behavior: 'smooth'
+          });
+      });
+  });
+
+}
+scrollTosectionId();
 
 //Add a scroll to top button on the page that’s 
 //only visible when the user scrolls below the fold of the page.
@@ -101,18 +118,3 @@ function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
-
-
-/**
- * End Main Functions
- * Begin Events
- * 
-*/
-
-// Build menu 
-
-// Scroll to section on link click
-
-// Set sections as active
-
-
